@@ -7,13 +7,13 @@ import com.hcleval.employeeservice.dto.EmployeeResponse;
 import java.util.List;
 
 public interface EmployeeService {
-    ApiResponse<EmployeeResponse> createEmployee(EmployeeRequest request);
+    EmployeeResponse createEmployee(EmployeeRequest request);
 
-    ApiResponse<EmployeeResponse> getEmployeeById(Long id);
+    EmployeeResponse getEmployeeById(Long id);
 
-    ApiResponse<List<EmployeeResponse>> getAllEmployees();
+    List<EmployeeResponse> getAllEmployees();
 
-    ApiResponse<EmployeeResponse> updateEmployee(Long id, EmployeeRequest request);
+    EmployeeResponse updateEmployee(Long id, EmployeeRequest request);
 
-    ApiResponse<Void> deleteEmployee(Long id);
+    void deleteEmployee(Long id);
 }

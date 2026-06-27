@@ -1,3 +1,37 @@
+app:
+  openapi:
+    title: Employee Service API
+    description: REST API for Employee Management System
+    version: v1.0.0
+
+    contact:
+      name: Madhu K
+      email: madhusk093@gmail.com
+
+    license:
+      name: Apache License 2.0
+      url: https://www.apache.org/licenses/LICENSE-2.0
+
+    server:
+      url: http://localhost:8080
+      description: Local Development Server
+
+  springdoc:
+    api-docs:
+      path: /api-docs
+
+    swagger-ui:
+      path: /swagger-ui.html
+      operationsSorter: method
+      tagsSorter: alpha
+      displayRequestDuration: true
+      tryItOutEnabled: true
+
+    packages-to-scan: com.hcleval.employeeservice.controller
+
+    paths-to-match:
+      - /api/**
+
 server:
   port: 8080
 

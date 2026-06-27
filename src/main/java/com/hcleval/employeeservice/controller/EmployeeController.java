@@ -1,5 +1,6 @@
 package com.hcleval.employeeservice.controller;
 
+import com.hcleval.employeeservice.constants.ApiMessages;
 import com.hcleval.employeeservice.dto.ApiResponse;
 import com.hcleval.employeeservice.dto.EmployeeRequest;
 import com.hcleval.employeeservice.dto.EmployeeResponse;
@@ -22,37 +23,68 @@ public class EmployeeController {
     public ResponseEntity<ApiResponse<EmployeeResponse>> createEmployee(
             @Valid @RequestBody EmployeeRequest request) {
 
-        return ResponseEntity
-                .status(HttpStatus.CREATED)
-                .body(employeeService.createEmployee(request));
+        EmployeeResponse response = employeeService.createEmployee(request);
+
+        return ResponseEntity.status(HttpStatus.CREATED)
+                .body(ApiResponse.success(
+                        ApiMessages.EMPLOYEE_CREATED,
+                        response
+                ));
     }
 
     @GetMapping("/{id}")
-    public ApiResponse<EmployeeResponse> getEmployeeById(
+    public ResponseEntity<ApiResponse<EmployeeResponse>> getEmployeeById(
             @PathVariable Long id) {
 
-        return employeeService.getEmployeeById(id);
+        EmployeeResponse response = employeeService.getEmployeeById(id);
+
+        return ResponseEntity.ok(
+                ApiResponse.success(
+                        ApiMessages.EMPLOYEE_FETCHED,
+                        response
+                )
+        );
     }
 
     @GetMapping
-    public ApiResponse<List<EmployeeResponse>> getAllEmployees() {
+    public ResponseEntity<ApiResponse<List<EmployeeResponse>>> getAllEmployees() {
 
-        return employeeService.getAllEmployees();
+        List<EmployeeResponse> response = employeeService.getAllEmployees();
+
+        return ResponseEntity.ok(
+                ApiResponse.success(
+                        ApiMessages.EMPLOYEES_FETCHED,
+                        response
+                )
+        );
     }
 
     @PutMapping("/{id}")
-    public ApiResponse<EmployeeResponse> updateEmployee(
+    public ResponseEntity<ApiResponse<EmployeeResponse>> updateEmployee(
             @PathVariable Long id,
             @Valid @RequestBody EmployeeRequest request) {
 
-        return employeeService.updateEmployee(id, request);
+        EmployeeResponse response =
+                employeeService.updateEmployee(id, request);
+
+        return ResponseEntity.ok(
+                ApiResponse.success(
+                        ApiMessages.EMPLOYEE_UPDATED,
+                        response
+                )
+        );
     }
 
     @DeleteMapping("/{id}")
-    public ApiResponse<Void> deleteEmployee(
+    public ResponseEntity<ApiResponse<Void>> deleteEmployee(
             @PathVariable Long id) {
 
-        return employeeService.deleteEmployee(id);
-    }
+        employeeService.deleteEmployee(id);
 
+        return ResponseEntity.ok(
+                ApiResponse.success(
+                        ApiMessages.EMPLOYEE_DELETED
+                )
+        );
+    }
 }
