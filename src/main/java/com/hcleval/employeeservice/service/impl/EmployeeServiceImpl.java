@@ -4,6 +4,8 @@ import com.hcleval.employeeservice.dto.ApiResponse;
 import com.hcleval.employeeservice.dto.EmployeeRequest;
 import com.hcleval.employeeservice.dto.EmployeeResponse;
 import com.hcleval.employeeservice.entity.Employee;
+import com.hcleval.employeeservice.exception.DuplicateResourceException;
+import com.hcleval.employeeservice.exception.ResourceNotFoundException;
 import com.hcleval.employeeservice.mapper.EmployeeMapper;
 import com.hcleval.employeeservice.repository.EmployeeRepository;
 import com.hcleval.employeeservice.service.EmployeeService;
@@ -21,7 +23,7 @@ public class EmployeeServiceImpl implements EmployeeService {
     @Override
     public ApiResponse<EmployeeResponse> createEmployee(EmployeeRequest request) {
         if (employeeRepository.existsByEmail(request.getEmail())) {
-            throw new RuntimeException("Employee with email already exists.");
+            throw new DuplicateResourceException("Employee with email already exists.");
         }
 
         Employee employee = employeeMapper.toEntity(request);
@@ -68,7 +70,7 @@ public class EmployeeServiceImpl implements EmployeeService {
     @Override
     public ApiResponse<EmployeeResponse> updateEmployee(Long id, EmployeeRequest request) {
         Employee employee = employeeRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("Employee not found with id: " + id));
+                .orElseThrow(() -> new ResourceNotFoundException("Employee not found with id: " + id));
 
         employeeMapper.updateEmployeeFromRequest(request, employee);
 
