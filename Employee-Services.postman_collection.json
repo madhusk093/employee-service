@@ -1,0 +1,141 @@
+{
+  "info": {
+    "_postman_id": "69f388b8-f1df-4a08-bbcd-934df0e2b1a8",
+    "name": "Employee-Services",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "55598144",
+    "_collection_link": "https://go.postman.co/collection/55598144-69f388b8-f1df-4a08-bbcd-934df0e2b1a8?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "CreateEmployee",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"firstName\": \"Madhu\",\r\n  \"lastName\": \"K\",\r\n  \"email\": \"madhu@example.com\",\r\n  \"department\": \"Engineering\",\r\n  \"salary\": 75000\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/v1/employees",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "v1",
+            "employees"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "GetEmployeeById",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/api/v1/employees/1",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "v1",
+            "employees",
+            "1"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "GetAllEmployees",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/api/v1/employees",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "v1",
+            "employees"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "UpdateEmployee",
+      "request": {
+        "method": "PUT",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"firstName\": \"Madhu sudhan kumar\",\r\n  \"lastName\": \"K\",\r\n  \"email\": \"madhusk093@gmail.com\",\r\n  \"department\": \"Engineering\",\r\n  \"salary\": 100000\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/v1/employees/1",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "v1",
+            "employees",
+            "1"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "DeleteEmployee",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"firstName\": \"Madhu\",\r\n  \"lastName\": \"K\",\r\n  \"email\": \"madhu@example.com\",\r\n  \"department\": \"Engineering\",\r\n  \"salary\": 75000\r\n}"
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/v1/employees/2",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "v1",
+            "employees",
+            "2"
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
+}
