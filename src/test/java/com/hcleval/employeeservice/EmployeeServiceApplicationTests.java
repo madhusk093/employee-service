@@ -1,4 +1,4 @@
-package com.hcleval.employee_service;
+package com.hcleval.employeeservice;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

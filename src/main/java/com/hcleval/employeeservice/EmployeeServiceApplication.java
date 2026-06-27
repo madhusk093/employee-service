@@ -1,4 +1,4 @@
-package com.hcleval.employee_service;
+package com.hcleval.employeeservice;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
